@@ -1,1 +1,6 @@
-# Angular 13 Login and Registration with JWT and Web API example
+## Descargar Librerias
+npm i
+## Correr el servidor
+ng serve
+## Crear el copilado
+ng build --prod
