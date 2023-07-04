@@ -19,7 +19,13 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 INSERT INTO `products` (`id`, `cantidad`, `descripcion`, `nombre`, `precio`) VALUES
-(1, 0, 'Producto prueba', 'Producto', 12000);
+(1, 0, 'Talla 8-10', 'Medias tobilleras', 12000),
+(2, 10, 'Talla M', 'Camiseta', 40000),
+(3, 5, 'Talla 32', 'Pantalón Deportivo', 80000),
+(4, 9, 'Talla 40', 'Zapatos Deportivos', 100000),
+(5, 7, 'Talla 39', 'Zapatos Casuales ', 199000),
+(6, 9, 'Talla s', 'Blusa Negra', 40000),
+(7, 2, 'Talla s', 'Gaban Mujer', 140000);
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
@@ -67,7 +73,17 @@ CREATE TABLE `wish_list` (
 INSERT INTO `wish_list` (`id`, `created_at`, `product_id`, `status`, `updated_at`, `user_id`) VALUES
 (7, '2023-07-03', 1, 'Eliminado', NULL, 2),
 (9, '2023-07-03', 1, 'Eliminado', NULL, 2),
-(10, '2023-07-03', 1, 'Eliminado', NULL, 2);
+(10, '2023-07-03', 1, 'Eliminado', NULL, 2),
+(12, '2023-07-03', 1, 'Eliminado', NULL, 2),
+(13, '2023-07-03', 2, 'Eliminado', NULL, 2),
+(14, '2023-07-03', 3, 'Añadido', NULL, 2),
+(15, '2023-07-03', 6, 'Eliminado', NULL, 2),
+(16, '2023-07-03', 6, 'Eliminado', NULL, 2),
+(17, '2023-07-03', 7, 'Eliminado', NULL, 2),
+(18, '2023-07-03', 6, 'Añadido', NULL, 2),
+(19, '2023-07-03', 5, 'Eliminado', NULL, 2),
+(20, '2023-07-03', 4, 'Eliminado', NULL, 2),
+(21, '2023-07-03', 7, 'Eliminado', NULL, 2);
 
 
 ALTER TABLE `products`
@@ -91,7 +107,7 @@ ALTER TABLE `wish_list`
 
 
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
@@ -100,7 +116,7 @@ ALTER TABLE `users`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `wish_list`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 
 ALTER TABLE `user_roles`
