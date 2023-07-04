@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     let exist = this.content.find(ele=>ele.productId == id)
     console.log(exist)
     let data=JSON.parse(sessionStorage.getItem("auth-user")!).id
-    let wish:Wishlist = {
+    let wish:any = {
       id:exist?exist?.id!:0,
       productId:  id,
       userId:data,

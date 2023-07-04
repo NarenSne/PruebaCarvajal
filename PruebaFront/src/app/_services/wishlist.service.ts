@@ -19,4 +19,7 @@ export class WishlistService {
   remove(id:number,wishlist:Wishlist): Observable<any> {
     return this.http.post(API_URL+"/remove?user="+id,wishlist);
   }
+  deleted(id:number): Observable<any> {
+    return this.http.get(API_URL+"/Deleted?user="+id);
+  }
 }

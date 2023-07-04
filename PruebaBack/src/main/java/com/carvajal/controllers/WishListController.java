@@ -37,7 +37,13 @@ public class WishListController {
 		System.out.println(wishListRepository.findByUserId(Long.parseLong(userId)));
 		return wishListRepository.getByUserId(Long.parseLong(userId));
 	}
-	
+	@GetMapping("/Deleted")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+	public List<WishList> getDeletedByUser(@RequestParam("user")String userId){	
+		System.out.println(Long.parseLong(userId));
+		System.out.println(wishListRepository.findByUserId(Long.parseLong(userId)));
+		return wishListRepository.getDeletedByUserId(Long.parseLong(userId));
+	}
 	@PostMapping("/add")
 	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public WishList addByUser(@RequestParam("user")String userId,@RequestBody WishListRequest request){		

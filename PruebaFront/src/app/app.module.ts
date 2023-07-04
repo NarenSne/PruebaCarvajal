@@ -20,6 +20,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ProfileComponent,
     BoardAdminComponent,
     BoardUserComponent,
-    ProductDialog
+    ProductDialog,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

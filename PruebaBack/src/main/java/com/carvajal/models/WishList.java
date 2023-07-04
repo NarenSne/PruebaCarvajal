@@ -71,6 +71,14 @@ public class WishList {
 	public void setStatus(String statuss) {
 		status = statuss;
 	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 	
 	
 }

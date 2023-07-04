@@ -3,6 +3,7 @@ export interface Wishlist {
   userId: number;
   productId: any;
   status: string;
+  createdAt:string;
 }
 export interface Product {
   id: number;

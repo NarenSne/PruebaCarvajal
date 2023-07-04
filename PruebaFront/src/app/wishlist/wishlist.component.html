@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let wish of content">
+                    <th scope="row">{{wish.createdAt}}</th>
+                    <td>{{obtenerNombre(wish.productId)?.nombre}}<br>
+                        <div *ngIf="obtenerNombre(wish.productId)?.cantidad!<=0" class="text-danger">
+                            Cantidad en stock: {{obtenerNombre(wish.productId)?.cantidad}}
+                        </div>
+                    </td>
+                    <td>{{obtenerNombre(wish.productId)?.descripcion}}</td>
+                    <td>{{obtenerNombre(wish.productId)?.precio|currency:'USD':'$':'1.0-0'}}</td>
+                    <th scope="row"><button class="btn btn-danger" (click)="eliminar(wish)">Eliminar</button></th>
+                </tr>
+            </tbody>
+        </table>
+        <mat-expansion-panel hideToggle class="w-100">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Historico
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="mat-elevation-z8 col-12">
+                <table mat-table [dataSource]="dataSource" class="w-100">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let wish"> {{wish.createdAt}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let wish"> {{obtenerNombre(wish.productId)?.nombre}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                        <td mat-cell *matCellDef="let wish"> {{obtenerNombre(wish.productId)?.descripcion}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                        <th mat-header-cell *matHeaderCellDef> Precio </th>
+                        <td mat-cell *matCellDef="let wish"> {{obtenerNombre(wish.productId)?.precio|currency:'USD':'$':'1.0-0'}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+        </mat-expansion-panel>
+    </div>
+</div>

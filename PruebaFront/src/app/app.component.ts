@@ -1,6 +1,8 @@
 import { Component, OnChanges } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,7 @@ export class AppComponent implements OnChanges {
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
+  constructor(private tokenStorageService: TokenStorageService, private router: Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -49,5 +51,8 @@ export class AppComponent implements OnChanges {
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+  lista(){
+    this.dialog.open(WishlistComponent)
   }
 }

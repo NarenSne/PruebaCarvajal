@@ -81,7 +81,9 @@ export class ProductDialog implements OnInit{
     }
   }
   showProduct(id:any){
-    let info:Product|undefined = this.productos.find(ele=>ele.id = id.value)
+    console.log(id)
+    let info:any = this.productos.find(ele=>ele.id == id.value)
+    console.log(this.productos)
     this.form.controls["nombre"].setValue(info?.nombre)
     this.form.controls["descripcion"].setValue(info?.descripcion)
     this.form.controls["precio"].setValue(info?.precio)
