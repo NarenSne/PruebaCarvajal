@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row" [formGroup]="form">
+        
+        <mat-form-field *ngIf="status=='edit'" class="col-md-12">
+            <mat-label>Select</mat-label>
+            <mat-select formControlName="id" (selectionChange)="showProduct($event)">
+              <mat-option *ngFor="let producto of productos" [value]="producto.id">{{producto.nombre}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <mat-label>Descripcion</mat-label>
+            <input matInput formControlName="descripcion">
+        </mat-form-field>
+        <mat-form-field class="col-md-6">
+            <mat-label>Precio</mat-label>
+            <input matInput formControlName="precio" type="number">
+          </mat-form-field>
+          <mat-form-field class="col-md-6">
+            <mat-label>Cantidad</mat-label>
+            <input matInput formControlName="cantidad" type="number">
+          </mat-form-field>
+          <div class="d-flex flex-row flex-wrap buttons px-3">
+            <button class="btn-warning btn" (click)="crear()">Aceptar</button>
+            <button class="btn-danger btn" (click)="crear()">Cancelar</button>
+          </div>
+    </div>
+</div>

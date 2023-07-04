@@ -1,0 +1,48 @@
+.box-container {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #999;
+    padding: 6px 0px 0px;
+    border-radius: 10px;
+  }
+  .box-container .box-id {
+    background-color: #eee;
+    display: block;
+    padding: 6px 15px;
+    border-radius: 10px;
+  }
+  .box-container .box-img {
+    position: relative;
+  }
+  .box-container .box-price {
+    display: inline-block;
+    background-color: #3498db;
+    border-radius: 0px;
+    padding: 4px 10px;
+    margin: 15px auto 0;
+    color: #fff;
+  }
+  .box-container .box-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .box-container .box-descripcion {
+    font-size: 12px;
+  }
+  .box-container .box-heading {
+    margin: 10px 0;
+  }
+  .box-container svg {
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    cursor: pointer;
+  }
+  .wished{
+    fill:#D4AF37
+  }
+  .box-container .box-id.btn-danger{
+    background-color: #dc3545;
+  }
